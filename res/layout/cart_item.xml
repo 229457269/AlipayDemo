@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:descendantFocusability="blocksDescendants"
+        >
+
+    <CheckBox
+            android:id="@+id/cart_item_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            
+            android:visibility="gone"
+            />
+
+    <ImageView
+            android:id="@+id/cart_item_product_icon"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/cart_item_checkbox"
+            android:src="@drawable/ic_launcher"
+            
+            />
+
+
+    <!-- TODO 这个地方需要针对 layout_marginRight 进行机型适配 -->
+
+    <TextView
+            android:id="@+id/cart_item_product_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/cart_item_product_icon"
+            android:layout_toRightOf="@id/cart_item_product_icon"
+            
+            android:maxLines="2"
+
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="50dp"
+
+            android:text="商品名称"
+            />
+
+    <!-- 数量控制的部分 -->
+
+    <ImageView
+            android:id="@+id/cart_item_inc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@id/cart_item_product_name"
+            android:layout_alignBottom="@id/cart_item_product_icon"
+            
+            android:src="@drawable/ic_action_new"
+            />
+
+    <TextView
+            android:id="@+id/cart_item_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/cart_item_inc"
+            android:layout_alignBottom="@id/cart_item_inc"
+            android:layout_alignTop="@id/cart_item_inc"
+
+            android:gravity="center"
+            android:singleLine="true"
+            android:maxLength="2"
+            android:inputType="number"
+            
+
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+
+            android:text="99"
+            />
+
+    <ImageView
+            android:id="@+id/cart_item_dec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/cart_item_count"
+            android:layout_alignBottom="@id/cart_item_inc"
+            android:layout_alignTop="@id/cart_item_inc"
+            
+            android:src="@drawable/shape_dec"
+
+            />
+
+    <!-- 价格部分 -->
+
+    <TextView
+            android:id="@+id/cart_item_product_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:singleLine="true"
+            android:layout_alignRight="@id/cart_item_product_name"
+
+            
+
+            android:gravity="bottom"
+            android:layout_above="@id/cart_item_inc"
+            android:layout_below="@id/cart_item_product_name"
+
+            android:text="价格"
+            />
+
+    <!-- 删除部分 -->
+
+    <ImageView
+            android:id="@+id/cart_item_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_action_remove"
+            
+            android:visibility="invisible"
+            />
+
+</RelativeLayout>
