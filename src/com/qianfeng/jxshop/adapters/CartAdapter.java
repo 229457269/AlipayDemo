@@ -32,7 +32,7 @@ public class CartAdapter extends BaseAdapter {
     private int listMode;
 
     /**
-     * 当某一个条目通过eckBox 选中发生变化，回调
+     * 当某一个条目通过 checkBox 选中发生变化，回调
      * 的接口
      */
     private CompoundButton.OnCheckedChangeListener itemCheckedListener;
@@ -89,7 +89,6 @@ public class CartAdapter extends BaseAdapter {
         View ret = null;
 
         // 1. 视图复用
-
         if (convertView != null) {
             ret = convertView;
         } else {
@@ -98,13 +97,11 @@ public class CartAdapter extends BaseAdapter {
         }
 
         // 2. ViewHolder 创建
-
         ViewHolder holder = (ViewHolder) ret.getTag();
         if (holder == null) {
             holder = new ViewHolder();
 
             // TODO 设置UI控件
-
             holder.checkBox = (CheckBox) ret.findViewById(R.id.cart_item_checkbox);
 
             // TODO 设置 CheckBox 选中变化的事件，选中之后，改变CartItem的内容
@@ -137,21 +134,17 @@ public class CartAdapter extends BaseAdapter {
         }
 
         // 3. 获取数据
-
         CartItem cartItem = items.get(position);
 
         // 4. 显示数据
-
         String productName = cartItem.getProductName();
         holder.txtProductName.setText(productName);
 
         // 4.2 显示数量
-
         int count = cartItem.getCount();
         holder.txtCount.setText(Integer.toString(count));
 
         // 4.2.1 设置 按钮的 Tag，用于给监听接口返回 当前条目的位置
-
         holder.btnInc.setTag(position);
 
         holder.btnDec.setTag(position);
@@ -169,7 +162,7 @@ public class CartAdapter extends BaseAdapter {
         holder.checkBox.setTag(position);
 
 
-        // 1. 不论任何状态，ViewHolder 中的所有控件，再每一次 getView 的时候
+        // 1. 不论任何状态，ViewHolder中的所有控件， 在每一次getView 的时候
         //    都必须设置与刷新
         if (listMode == 1) {
 
@@ -179,14 +172,15 @@ public class CartAdapter extends BaseAdapter {
 
             // 只要是编辑模式，那么CheckBox可见
             holder.checkBox.setVisibility(View.VISIBLE);
+
         } else {
 
             // 非编辑模式，CheckBox 取消选中
             holder.checkBox.setChecked(false);
 
             // 注意，当非编辑模式，数据实体中的 checked 也应该变成 false
-
             holder.checkBox.setVisibility(View.INVISIBLE);
+
         }
 
         return ret;
@@ -204,9 +198,7 @@ public class CartAdapter extends BaseAdapter {
         } else if (listMode == 0) {
             listMode = 1;
         }
-
         notifyDataSetChanged();
-
     }
 
     private static class ViewHolder {
